@@ -1,15 +1,9 @@
 #include<gmp.h>
 #include<stdio.h>
 #include<stdlib.h>
-// #include<stdint.h>
-// #include<math.h>
-// #include<sys/time.h>
-// #include<unistd.h>
 
 int main(int cnt, char** v) {
     if (cnt > 1) {
-        // struct  timeval start, end;
-        // gettimeofday(&start, NULL);
 
         mpz_t max, pmax, qmax, p, q, max_tmp, ans, gcd, tmp, a, b, c, k;
         mpz_inits(max, pmax, qmax, '\0');
@@ -18,12 +12,9 @@ int main(int cnt, char** v) {
         mpz_inits(a, b, c, k, '\0');
 
         mpz_set_str(max, v[1], 10);
-        //int64_t max = mpz_get_ui(max_tmp);
         mpz_root(qmax, max, 4);
-        //int64_t qmax = mpz_get_ui(maxT);
         mpz_fdiv_q_ui(max_tmp, max, 4);
         mpz_root(pmax, max_tmp, 4);
-        //int64_t pmax = mpz_get_ui(maxT);
 
         mpz_set_str(p, "1", 10);
         while (mpz_cmp(p, pmax) <= 0)
@@ -77,9 +68,6 @@ int main(int cnt, char** v) {
             }
             mpz_add_ui(p, p, 1);
         }
-        //gettimeofday(&end, NULL);
-        // double diff = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) * 1.0 / 1000000;
-        // gmp_printf("time:%fs, %Zd\n", diff, ans);
         gmp_printf("%Zd\n", ans);
         mpz_clears(max, pmax, qmax, p, q, max_tmp, ans, gcd, tmp, a, b, c, k, '\0');
     }
