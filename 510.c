@@ -69,7 +69,11 @@ int main(int cnt, char** v) {
             mpz_add_ui(p, p, 1);
         }
         gmp_printf("%Zd\n", ans);
-        mpz_clears(max, pmax, qmax, p, q, max_tmp, ans, gcd, tmp, a, b, c, k, '\0');
+        mpz_clears(max, pmax, qmax, '\0');
+        mpz_clears(p, q, max_tmp,'\0');
+        mpz_clears(ans, gcd, tmp, '\0');
+        mpz_clears(a, b, c, k, '\0');
+        
     }
 
 }
